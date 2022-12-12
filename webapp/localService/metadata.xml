@@ -1,0 +1,221 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="17a4ddbb88941f051815264c" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="17a4ddbb88941f051815264c_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="SalesOrderSet" EntityType="17a4ddbb88941f051815264c.SalesOrder" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="SalesOrderRoomChargeRoomCharge" Association="17a4ddbb88941f051815264c.SalesOrderRoomChargeRoomCharge" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderRoomChargeRoomCharge"/>
+                    <End EntitySet="RoomChargeSet" Role="ToRole_SalesOrderRoomChargeRoomCharge"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderServiceService" Association="17a4ddbb88941f051815264c.SalesOrderServiceService" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderServiceService"/>
+                    <End EntitySet="ServiceSet" Role="ToRole_SalesOrderServiceService"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderAdminChargeAdminCharge" Association="17a4ddbb88941f051815264c.SalesOrderAdminChargeAdminCharge" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderAdminChargeAdminCharge"/>
+                    <End EntitySet="AdminChargeSet" Role="ToRole_SalesOrderAdminChargeAdminCharge"/>
+                </AssociationSet>
+                <AssociationSet Name="SalesOrderInvoiceInvoice" Association="17a4ddbb88941f051815264c.SalesOrderInvoiceInvoice" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="SalesOrderSet" Role="FromRole_SalesOrderInvoiceInvoice"/>
+                    <End EntitySet="InvoiceSet" Role="ToRole_SalesOrderInvoiceInvoice"/>
+                </AssociationSet>
+                <EntitySet Name="RoomChargeSet" EntityType="17a4ddbb88941f051815264c.RoomCharge" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="RoomChargeServiceConditionsConditions" Association="17a4ddbb88941f051815264c.RoomChargeServiceConditionsConditions" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="RoomChargeSet" Role="FromRole_RoomChargeServiceConditionsConditions"/>
+                    <End EntitySet="ConditionsSet" Role="ToRole_RoomChargeServiceConditionsConditions"/>
+                </AssociationSet>
+                <EntitySet Name="ServiceSet" EntityType="17a4ddbb88941f051815264c.Service" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="ServiceServiceConditionsConditions" Association="17a4ddbb88941f051815264c.ServiceServiceConditionsConditions" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="ServiceSet" Role="FromRole_ServiceServiceConditionsConditions"/>
+                    <End EntitySet="ConditionsSet" Role="ToRole_ServiceServiceConditionsConditions"/>
+                </AssociationSet>
+                <EntitySet Name="ConditionsSet" EntityType="17a4ddbb88941f051815264c.Conditions" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="AdminChargeSet" EntityType="17a4ddbb88941f051815264c.AdminCharge" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="AdminChargeServiceConditionsConditions" Association="17a4ddbb88941f051815264c.AdminChargeServiceConditionsConditions" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="AdminChargeSet" Role="FromRole_AdminChargeServiceConditionsConditions"/>
+                    <End EntitySet="ConditionsSet" Role="ToRole_AdminChargeServiceConditionsConditions"/>
+                </AssociationSet>
+                <EntitySet Name="InvoiceSet" EntityType="17a4ddbb88941f051815264c.Invoice" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+            </EntityContainer>
+            <EntityType Name="SalesOrder">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Case" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Case"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="Patient_ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Patient_ID"/>
+                <Property Name="Case_Type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Case_Type"/>
+                <Property Name="Age" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Age"/>
+                <Property Name="Sex" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Sex"/>
+                <Property Name="Bill_Status" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Bill_Status"/>
+                <Property Name="Admission_Date" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Admission_Date"/>
+                <NavigationProperty Name="RoomCharge" Relationship="17a4ddbb88941f051815264c.SalesOrderRoomChargeRoomCharge" FromRole="FromRole_SalesOrderRoomChargeRoomCharge" ToRole="ToRole_SalesOrderRoomChargeRoomCharge"/>
+                <NavigationProperty Name="Service" Relationship="17a4ddbb88941f051815264c.SalesOrderServiceService" FromRole="FromRole_SalesOrderServiceService" ToRole="ToRole_SalesOrderServiceService"/>
+                <NavigationProperty Name="AdminCharge" Relationship="17a4ddbb88941f051815264c.SalesOrderAdminChargeAdminCharge" FromRole="FromRole_SalesOrderAdminChargeAdminCharge" ToRole="ToRole_SalesOrderAdminChargeAdminCharge"/>
+                <NavigationProperty Name="Invoice" Relationship="17a4ddbb88941f051815264c.SalesOrderInvoiceInvoice" FromRole="FromRole_SalesOrderInvoiceInvoice" ToRole="ToRole_SalesOrderInvoiceInvoice"/>
+            </EntityType>
+            <Association Name="SalesOrderRoomChargeRoomCharge">
+                <End Type="17a4ddbb88941f051815264c.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderRoomChargeRoomCharge"/>
+                <End Type="17a4ddbb88941f051815264c.RoomCharge" Multiplicity="*" Role="ToRole_SalesOrderRoomChargeRoomCharge"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderRoomChargeRoomCharge">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderRoomChargeRoomCharge">
+                        <PropertyRef Name="___FK_c246d8b129267d1b18152687_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SalesOrderServiceService">
+                <End Type="17a4ddbb88941f051815264c.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderServiceService"/>
+                <End Type="17a4ddbb88941f051815264c.Service" Multiplicity="*" Role="ToRole_SalesOrderServiceService"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderServiceService">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderServiceService">
+                        <PropertyRef Name="___FK_c246d8b129267d1b18152687_00003"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SalesOrderAdminChargeAdminCharge">
+                <End Type="17a4ddbb88941f051815264c.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderAdminChargeAdminCharge"/>
+                <End Type="17a4ddbb88941f051815264c.AdminCharge" Multiplicity="*" Role="ToRole_SalesOrderAdminChargeAdminCharge"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderAdminChargeAdminCharge">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderAdminChargeAdminCharge">
+                        <PropertyRef Name="___FK_2c0a34542c43b09b181e3025_00004"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="SalesOrderInvoiceInvoice">
+                <End Type="17a4ddbb88941f051815264c.SalesOrder" Multiplicity="1" Role="FromRole_SalesOrderInvoiceInvoice"/>
+                <End Type="17a4ddbb88941f051815264c.Invoice" Multiplicity="*" Role="ToRole_SalesOrderInvoiceInvoice"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SalesOrderInvoiceInvoice">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SalesOrderInvoiceInvoice">
+                        <PropertyRef Name="___FK_85b8f7dc15a0564f1824b4f7_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="RoomCharge">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Case_ID" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Case_ID"/>
+                <Property Name="Room" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Room"/>
+                <Property Name="Bed_Type" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Bed_Type"/>
+                <Property Name="Acc_Cat" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Acc_Cat"/>
+                <Property Name="Day" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Day"/>
+                <Property Name="From" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="From"/>
+                <Property Name="To" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="To"/>
+                <Property Name="Dept_OU" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Dept_OU"/>
+                <Property Name="NUR_OU" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="NUR_OU"/>
+                <Property Name="Net_Price" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Net_Price"/>
+                <Property Name="StatusSummary" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StatusSummary"/>
+                <Property Name="InvoiceNo" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InvoiceNo"/>
+                <Property Name="___FK_c246d8b129267d1b18152687_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_c246d8b129267d1b18152687_00001"/>
+                <NavigationProperty Name="ServiceConditions" Relationship="17a4ddbb88941f051815264c.RoomChargeServiceConditionsConditions" FromRole="FromRole_RoomChargeServiceConditionsConditions" ToRole="ToRole_RoomChargeServiceConditionsConditions"/>
+            </EntityType>
+            <Association Name="RoomChargeServiceConditionsConditions">
+                <End Type="17a4ddbb88941f051815264c.RoomCharge" Multiplicity="1" Role="FromRole_RoomChargeServiceConditionsConditions"/>
+                <End Type="17a4ddbb88941f051815264c.Conditions" Multiplicity="*" Role="ToRole_RoomChargeServiceConditionsConditions"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_RoomChargeServiceConditionsConditions">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_RoomChargeServiceConditionsConditions">
+                        <PropertyRef Name="___FK_2c0a34542c43b09b181e3025_00008"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Service">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="CaseID" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="CaseID"/>
+                <Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="Qty" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Qty"/>
+                <Property Name="UOM" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="UOM"/>
+                <Property Name="Dept" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Dept"/>
+                <Property Name="Nursing" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Nursing"/>
+                <Property Name="Price" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Price"/>
+                <Property Name="Currency" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Currency"/>
+                <Property Name="BillStatus" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BillStatus"/>
+                <Property Name="Invoice" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Invoice"/>
+                <Property Name="___FK_c246d8b129267d1b18152687_00003" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_c246d8b129267d1b18152687_00003"/>
+                <Property Name="ResponsiblePhysician" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ResponsiblePhysician"/>
+                <NavigationProperty Name="ServiceConditions" Relationship="17a4ddbb88941f051815264c.ServiceServiceConditionsConditions" FromRole="FromRole_ServiceServiceConditionsConditions" ToRole="ToRole_ServiceServiceConditionsConditions"/>
+            </EntityType>
+            <Association Name="ServiceServiceConditionsConditions">
+                <End Type="17a4ddbb88941f051815264c.Service" Multiplicity="1" Role="FromRole_ServiceServiceConditionsConditions"/>
+                <End Type="17a4ddbb88941f051815264c.Conditions" Multiplicity="*" Role="ToRole_ServiceServiceConditionsConditions"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ServiceServiceConditionsConditions">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ServiceServiceConditionsConditions">
+                        <PropertyRef Name="___FK_2c0a34542c43b09b181e3025_00001"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Conditions" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="Rate" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Rate"/>
+                <Property Name="Value" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Value"/>
+                <Property Name="Remark" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Remark"/>
+                <Property Name="___FK_2c0a34542c43b09b181e3025_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_2c0a34542c43b09b181e3025_00001"/>
+                <Property Name="___FK_2c0a34542c43b09b181e3025_00006" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_2c0a34542c43b09b181e3025_00006"/>
+                <Property Name="___FK_2c0a34542c43b09b181e3025_00008" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_2c0a34542c43b09b181e3025_00008"/>
+            </EntityType>
+            <EntityType Name="AdminCharge">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="Value" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Value"/>
+                <Property Name="___FK_2c0a34542c43b09b181e3025_00004" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_2c0a34542c43b09b181e3025_00004"/>
+                <NavigationProperty Name="ServiceConditions" Relationship="17a4ddbb88941f051815264c.AdminChargeServiceConditionsConditions" FromRole="FromRole_AdminChargeServiceConditionsConditions" ToRole="ToRole_AdminChargeServiceConditionsConditions"/>
+            </EntityType>
+            <Association Name="AdminChargeServiceConditionsConditions">
+                <End Type="17a4ddbb88941f051815264c.AdminCharge" Multiplicity="1" Role="FromRole_AdminChargeServiceConditionsConditions"/>
+                <End Type="17a4ddbb88941f051815264c.Conditions" Multiplicity="*" Role="ToRole_AdminChargeServiceConditionsConditions"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AdminChargeServiceConditionsConditions">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AdminChargeServiceConditionsConditions">
+                        <PropertyRef Name="___FK_2c0a34542c43b09b181e3025_00006"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Invoice" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="InoviceNO" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="InoviceNO"/>
+                <Property Name="DocumentType" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="DocumentType"/>
+                <Property Name="Item" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Item"/>
+                <Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="Price" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Price"/>
+                <Property Name="UOM" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="UOM"/>
+                <Property Name="Payer" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Payer"/>
+                <Property Name="___FK_85b8f7dc15a0564f1824b4f7_00001" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="___FK_85b8f7dc15a0564f1824b4f7_00001"/>
+                <Property Name="Date" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="Date"/>
+            </EntityType>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
